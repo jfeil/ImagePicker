@@ -29,6 +29,8 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+.idea/
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
@@ -196,6 +198,7 @@ dmypy.json
 .pyre/
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -209,3 +212,4 @@ dmypy.json
 # End of https://www.gitignore.io/api/python,pycharm,visualstudiocode
 
 ressources/
+venv/
