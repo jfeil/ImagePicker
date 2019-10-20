@@ -2,7 +2,7 @@ import os
 from typing import Dict
 
 from PySide2.QtGui import Qt, QPixmap
-from PySide2.QtWidgets import QMainWindow, QStyle, QFileDialog
+from PySide2.QtWidgets import QMainWindow, QStyle, QFileDialog, QFrame
 
 from imagepicker.Ui_MainWindow import Ui_MainWindow
 
@@ -22,6 +22,7 @@ class MainWindow(QMainWindow):
         self.ui.backward_small.clicked.connect(lambda: self.show_image(self.current_index - 1))
         self.ui.forward_big.clicked.connect(lambda: self.show_image(self.current_index + self.ui.step_spin.value()))
         self.ui.backward_big.clicked.connect(lambda: self.show_image(self.current_index - self.ui.step_spin.value()))
+        self.ui.select.clicked.connect(self.select_image)
 
         self.file_list = {}  # type: Dict[str, bool]
         self.selected_images = []
@@ -44,9 +45,20 @@ class MainWindow(QMainWindow):
         self.ui.image_label.setPixmap(image)
         self.setWindowTitle(list(self.file_list.keys())[self.current_index])
 
+        self._draw_border()
+
     def select_image(self):
         self.file_list[list(self.file_list.keys())[self.current_index]] = \
             not self.file_list[list(self.file_list.keys())[self.current_index]]
+
+        self._draw_border()
+
+    def _draw_border(self):
+        bool_ = self.file_list[list(self.file_list.keys())[self.current_index]]
+        if bool_:
+            self.ui.image_label.setFrameStyle(QFrame.Box | QFrame.Plain)
+        else:
+            self.ui.image_label.setFrameStyle(QFrame.NoFrame)
 
     def open_folder(self):
         self.current_index = 0
