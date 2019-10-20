@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ImagePicker</class>
+ <widget class="QMainWindow" name="ImagePicker">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ImagePicker</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -38,36 +38,66 @@
       </property>
       <item>
        <widget class="QPushButton" name="backward_small">
+        <property name="toolTip">
+         <string>B</string>
+        </property>
         <property name="text">
          <string>Forward -1</string>
+        </property>
+        <property name="shortcut">
+         <string>B</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="backward_big">
+        <property name="toolTip">
+         <string>V</string>
+        </property>
         <property name="text">
          <string>Backward -10</string>
+        </property>
+        <property name="shortcut">
+         <string>V</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="select">
+        <property name="toolTip">
+         <string>S</string>
+        </property>
         <property name="text">
          <string>Select</string>
+        </property>
+        <property name="shortcut">
+         <string>S</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="forward_big">
+        <property name="toolTip">
+         <string>M</string>
+        </property>
         <property name="text">
          <string>Forward +10</string>
+        </property>
+        <property name="shortcut">
+         <string>M</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="forward_small">
+        <property name="toolTip">
+         <string>N</string>
+        </property>
         <property name="text">
          <string>Forward +1</string>
+        </property>
+        <property name="shortcut">
+         <string>N</string>
         </property>
        </widget>
       </item>
