@@ -1,7 +1,7 @@
 import enum
 import os
 from collections import OrderedDict
-from enum import Enum, auto, IntEnum
+from enum import Enum, IntEnum
 from os import remove
 from shutil import copy2, move
 from typing import Dict
@@ -18,9 +18,9 @@ class SelectionStatus(IntEnum):
 
 
 class ModificationType(Enum):
-    COPY = auto()
-    MOVE = auto()
-    REMOVE = auto()
+    COPY = 1
+    MOVE = 2
+    REMOVE = 3
 
 
 class MainWindow(QMainWindow):
@@ -30,6 +30,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_ImagePicker()
         self.title = "ImagePicker"
         self.ui.setupUi(self)
+
+        # Ubuntu 16.04 LTS is too stupid to display the Menubar...
+        self.ui.menubar.setNativeMenuBar(False)
+
         self.setGeometry(QStyle.alignedRect(Qt.LeftToRight,
                                             Qt.AlignCenter,
                                             self.size(),
@@ -41,6 +45,8 @@ class MainWindow(QMainWindow):
         self.ui.forward_big.clicked.connect(lambda: self.show_image(self.current_index + self.ui.step_spin.value()))
         self.ui.backward_big.clicked.connect(lambda: self.show_image(self.current_index - self.ui.step_spin.value()))
         self.ui.select.clicked.connect(self.select_image)
+
+        self.ui.step_spin.valueChanged.connect(self.change_scroll_count)
 
         self.ui.actionCopy_Selected.triggered.connect(lambda: self.modify_items(SelectionStatus.SELECTED, ModificationType.COPY))
         self.ui.actionCopy_Unselected.triggered.connect(lambda: self.modify_items(SelectionStatus.UNSELECTED, ModificationType.COPY))
@@ -142,3 +148,7 @@ class MainWindow(QMainWindow):
 
         else:
             raise ValueError("{} is wrong.".format(modify_type))
+
+    def change_scroll_count(self, count):
+        self.ui.forward_big.setText("Next +{}".format(count))
+        self.ui.backward_big.setText("Previous -{}".format(count))

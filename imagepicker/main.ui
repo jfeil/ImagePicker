@@ -37,28 +37,28 @@
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="backward_small">
-        <property name="toolTip">
-         <string>B</string>
-        </property>
-        <property name="text">
-         <string>Forward -1</string>
-        </property>
-        <property name="shortcut">
-         <string>B</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="backward_big">
         <property name="toolTip">
          <string>V</string>
         </property>
         <property name="text">
-         <string>Backward -10</string>
+         <string>Previous -10</string>
         </property>
         <property name="shortcut">
          <string>V</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="backward_small">
+        <property name="toolTip">
+         <string>B</string>
+        </property>
+        <property name="text">
+         <string>Previous -1</string>
+        </property>
+        <property name="shortcut">
+         <string>B</string>
         </property>
        </widget>
       </item>
@@ -76,28 +76,28 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="forward_big">
-        <property name="toolTip">
-         <string>M</string>
-        </property>
-        <property name="text">
-         <string>Forward +10</string>
-        </property>
-        <property name="shortcut">
-         <string>M</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="forward_small">
         <property name="toolTip">
          <string>N</string>
         </property>
         <property name="text">
-         <string>Forward +1</string>
+         <string>Next +1</string>
         </property>
         <property name="shortcut">
          <string>N</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="forward_big">
+        <property name="toolTip">
+         <string>M</string>
+        </property>
+        <property name="text">
+         <string>Next +10</string>
+        </property>
+        <property name="shortcut">
+         <string>M</string>
         </property>
        </widget>
       </item>
@@ -116,7 +116,7 @@
          <string> Steps</string>
         </property>
         <property name="prefix">
-         <string> </string>
+         <string/>
         </property>
         <property name="minimum">
          <number>1</number>
@@ -147,6 +147,7 @@
      <string>File</string>
     </property>
     <addaction name="actionOpenFolder"/>
+    <addaction name="actionOverview"/>
    </widget>
    <widget class="QMenu" name="menuMove_selected">
     <property name="title">
@@ -201,6 +202,11 @@
   <action name="actionOpenFolder">
    <property name="text">
     <string>Open Folder</string>
+   </property>
+  </action>
+  <action name="actionOverview">
+   <property name="text">
+    <string>Overview</string>
    </property>
   </action>
  </widget>
