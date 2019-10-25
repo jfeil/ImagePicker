@@ -24,7 +24,7 @@ class ModificationType(Enum):
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, app):
+    def __init__(self, app, path):
         super().__init__()
 
         self.ui = Ui_ImagePicker()
@@ -59,6 +59,9 @@ class MainWindow(QMainWindow):
         self.selected_images = []
         self.current_index = 0  # type: int
         self.path = ""  # type: str
+
+        if path:
+            self.open_folder(path)
 
     def show_image(self, index):
         if len(self.file_list) == 0:
